@@ -1,7 +1,7 @@
 import express from "express";
 import { router } from "./router/v1";
 
-import client from "@repo/db/client"
+import client from "@repo/db/client";
 
 const app = express();
 

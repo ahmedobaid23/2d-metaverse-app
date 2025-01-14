@@ -31,10 +31,10 @@ model Space {
   thumbnail String?
   creatorID String
   creator   User            @relation(fields: [creatorID], references: [id])
-  elements  spaceElements[]
+  elements  SpaceElements[]
 }
 
-model spaceElements {
+model SpaceElements {
   id        String  @id @unique @default(cuid())
   elementId String
   spaceId   String
@@ -45,20 +45,20 @@ model spaceElements {
 }
 
 model Element {
-  id          String          @id @unique @default(cuid())
-  width       Int
-  height      Int
-  imageUrl    String
-  spaces      spaceElements[]
-  mapElements MapElements[]
+  id       String          @id @unique @default(cuid())
+  width    Int
+  height   Int
+  imageUrl String
+  spaces   SpaceElements[]
+  maps     MapElements[]
 }
 
 model Map {
-  id          String        @id @unique @default(cuid())
-  width       Int
-  height      Int
-  name        String
-  mapElements MapElements[]
+  id       String        @id @unique @default(cuid())
+  width    Int
+  height   Int
+  name     String
+  elements MapElements[]
 }
 
 model MapElements {
@@ -75,7 +75,7 @@ model Avatar {
   id       String  @id @unique @default(cuid())
   imageUrl String?
   name     String?
-  usera    User[]
+  users    User[]
 }
 
 enum Role {
